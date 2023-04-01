@@ -32,7 +32,7 @@ import { URL } from '../App';
 //     const {
 //       userLogin: { userInfo },
 //     } = getState();
-//     const data = await axios("${URL}/api/blogs/addBlog", {
+//     const data = await axios("/api/blogs/addBlog", {
 //       method: "POST",
 //       data: formBody,
 //       headers: {
