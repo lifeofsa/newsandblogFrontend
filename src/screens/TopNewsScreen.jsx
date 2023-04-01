@@ -37,7 +37,7 @@ const TopNewsScreen = () => {
       }, 1000);
     }
     dispatch(newsApiAction());
-  }, [dispatch, loading]);
+  }, []);
 
   return (
     <>
