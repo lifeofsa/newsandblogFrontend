@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -30,17 +30,17 @@ import {
   useColorModeValue,
   VStack,
   WrapItem,
-} from "@chakra-ui/react";
-import ReactSlider from "react-slick";
-import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+} from '@chakra-ui/react';
+import ReactSlider from 'react-slick';
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   BLOGS_RESET_BYID,
   BLOGS_RESET_CREATE,
-} from "../constants/BlogsConstants";
-import { blogsActionPost, getAllBlogsAction } from "../actions/blogsAction";
-import dayjs from "dayjs";
+} from '../constants/BlogsConstants';
+import { blogsActionPost, getAllBlogsAction } from '../actions/blogsAction';
+import dayjs from 'dayjs';
 const BlogScreen = () => {
   const [slider, setSlider] = useState(null);
   const [slider2, setSlider2] = useState(null);
@@ -75,24 +75,24 @@ const BlogScreen = () => {
   };
   const imagesArray = [
     {
-      title: "Why You Should Always Keep Learning",
-      src: "https://images.unsplash.com/photo-1534612368275-e4cfd0f21b2d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&w=960",
+      title: 'Why You Should Always Keep Learning',
+      src: 'https://images.unsplash.com/photo-1534612368275-e4cfd0f21b2d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&w=960',
     },
     {
-      title: "When Your Company Starts Growing...",
-      src: "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&w=960",
+      title: 'When Your Company Starts Growing...',
+      src: 'https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&w=960',
     },
     {
-      title: "Working from Home",
-      src: "https://images.unsplash.com/photo-1524508762098-fd966ffb6ef9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&w=960",
+      title: 'Working from Home',
+      src: 'https://images.unsplash.com/photo-1524508762098-fd966ffb6ef9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&w=960',
     },
     {
-      title: "Is San Francisco Mandatory for Your Next Big Idea?",
-      src: "https://images.unsplash.com/photo-1509817312789-ad718caba3b2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&w=960",
+      title: 'Is San Francisco Mandatory for Your Next Big Idea?',
+      src: 'https://images.unsplash.com/photo-1509817312789-ad718caba3b2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&w=960',
     },
     {
-      title: "I Failed as a Designer at a Startup",
-      src: "https://images.unsplash.com/photo-1498075702571-ecb018f3752d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&w=750",
+      title: 'I Failed as a Designer at a Startup',
+      src: 'https://images.unsplash.com/photo-1498075702571-ecb018f3752d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ&w=750',
     },
   ];
   function renderArrow(children) {
@@ -181,21 +181,21 @@ const BlogScreen = () => {
   return (
     <>
       <Stack
-        display={{ base: "none", lg: "flex" }}
+        display={{ base: 'none', lg: 'flex' }}
         py={20}
-        style={{ maxWidth: "70%", margin: "auto" }}
+        style={{ maxWidth: '70%', margin: 'auto' }}
       >
         {userInfo?.admin && (
           <WrapItem py="40px" alignSelf="center">
             <Button onClick={postHandler}>Create A Blog</Button>
           </WrapItem>
         )}
-        <Box position={"relative"} height={"500px"}>
-          {renderArrow(useColorModeValue("white", "#2d3748"))}
+        <Box position={'relative'} height={'500px'}>
+          {renderArrow(useColorModeValue('white', '#2d3748'))}
           <ReactSlider {...setting} ref={(slider) => setSlider(slider)}>
             {blogs?.map((blog, key) => (
               <>
-                <a href={`/blognews/${blog.id}`}>
+                <a href={`/blognews/${blog?.id}`}>
                   <Box>
                     <Flex blockSize="290px">
                       <Image
@@ -207,7 +207,7 @@ const BlogScreen = () => {
                     </Flex>
 
                     <Heading
-                      style={{ fontWeight: "bold" }}
+                      style={{ fontWeight: 'bold' }}
                       py={5}
                       as=""
                       size="md"
@@ -215,7 +215,7 @@ const BlogScreen = () => {
                       {blog.title}
                     </Heading>
                     <Text fontSize="sm" color="#aeacac">
-                      {dayjs(blog.createdAt).format("MMM DD, YYYY")}
+                      {dayjs(blog.createdAt).format('MMM DD, YYYY')}
                     </Text>
                   </Box>
                 </a>
@@ -249,7 +249,7 @@ const BlogScreen = () => {
 
               <Flex py={10}>
                 <Container maxW="3xl">
-                  <Text noOfLines={4} maxWidth={"100%"}>
+                  <Text noOfLines={4} maxWidth={'100%'}>
                     <Heading py="10px">{blog.title}</Heading>
                     {blog.description}
                   </Text>
@@ -261,12 +261,12 @@ const BlogScreen = () => {
       </Stack>
 
       <Stack
-        display={{ lg: "none" }}
+        display={{ lg: 'none' }}
         py={20}
-        style={{ maxWidth: "90%", margin: "auto" }}
+        style={{ maxWidth: '90%', margin: 'auto' }}
       >
-        <Box position={"relative"} height={"600px"}>
-          {renderArrow2(useColorModeValue("white", "#2d3748"))}
+        <Box position={'relative'} height={'600px'}>
+          {renderArrow2(useColorModeValue('white', '#2d3748'))}
           <ReactSlider {...setting} ref={(slider) => setSlider2(slider)}>
             {imagesArray.map((img, key) => (
               <Box key={key}>
@@ -279,7 +279,7 @@ const BlogScreen = () => {
                   />
                 </Flex>
 
-                <Heading style={{ fontWeight: "bold" }} py={5} as="" size="md">
+                <Heading style={{ fontWeight: 'bold' }} py={5} as="" size="md">
                   {img.title}
                 </Heading>
                 <Text fontSize="sm" color="#aaa">
@@ -296,7 +296,7 @@ const BlogScreen = () => {
 
               <Flex py={10}>
                 <Container maxW="3xl">
-                  <Text noOfLines={4} maxWidth={"100%"}>
+                  <Text noOfLines={4} maxWidth={'100%'}>
                     <Heading py="10px">{blog.title}</Heading>
                     {blog.description}
                   </Text>
