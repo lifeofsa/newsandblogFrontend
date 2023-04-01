@@ -34,9 +34,9 @@ import SingleBlogScreen from './screens/SingleBlogScreen';
 import DomesticNewsScreen from './screens/DomesticNewsScreen';
 
 // import dotenv from 'dotenv';
-export const URL = process.env.REACT_APP_YOUR_NAME_KEY;
+export const URL = process.env.REACT_APP_API_URL;
 const App = () => {
-  console.log(process.env.REACT_APP_YOUR_NAME_KEY);
+  console.log(process.env.REACT_APP_API_URL);
   // dotenv.config();
   return (
     // <React.Fragment>
