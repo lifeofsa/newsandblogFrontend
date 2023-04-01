@@ -1,16 +1,16 @@
-import axios from "axios";
+import axios from 'axios';
 
 import {
   NEWS_API_FAIL,
   NEWS_API_REQUEST,
   NEWS_API_SUCCESS,
-} from "../constants/newsConstants";
+} from '../constants/newsConstants';
 
 export function fetchTech() {
   //return the actual action to do
   return function (dispatch) {
     fetch(
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=9500a99b9aff4259b23997fd87c3a9e0"
+      'https://newsapi.org/v2/top-headlines?country=us&apiKey=9500a99b9aff4259b23997fd87c3a9e0'
     )
       .then((res) => {
         return res.json();
@@ -31,14 +31,15 @@ export const newsApiAction = () => {
         type: NEWS_API_REQUEST,
       });
 
-      const res = await fetch(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=9500a99b9aff4259b23997fd87c3a9e0"
+      const res = await axios.get(
+        'https://newsapi.org/v2/top-headlines?country=us&apiKey=9500a99b9aff4259b23997fd87c3a9e0'
         // "https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=eb4a33f5bcd518f6cf3f8cea8c5f03ef"
         // "https://newsdata.io/api/1/news?apikey=pub_187859473556247569161391d633964d2f723&language=en"
       );
-      res.json().then((res) => {
-        dispatch({ type: NEWS_API_SUCCESS, payload: res.articles });
-      });
+      dispatch({ type: NEWS_API_SUCCESS, payload: res.data.articles });
+      // res.json().then((res) => {
+      //   dispatch({ type: NEWS_API_SUCCESS, payload: res.articles });
+      // });
     } catch (error) {
       dispatch({
         type: NEWS_API_FAIL,
