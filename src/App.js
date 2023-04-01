@@ -32,10 +32,11 @@ import SingleNewsScreen from './screens/SingleNewsScreen';
 import BlogFormScreen from './screens/BlogFormScreen';
 import SingleBlogScreen from './screens/SingleBlogScreen';
 import DomesticNewsScreen from './screens/DomesticNewsScreen';
-// import dotenv from 'dotenv';
-export const URL = 'https://lifeofabblogs.onrender.com';
 
+// import dotenv from 'dotenv';
+export const URL = process.env.REACT_APP_YOUR_NAME_KEY;
 const App = () => {
+  console.log(process.env.REACT_APP_YOUR_NAME_KEY);
   // dotenv.config();
   return (
     // <React.Fragment>

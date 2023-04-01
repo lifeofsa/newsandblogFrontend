@@ -1,16 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { ColorModeScript } from "@chakra-ui/react";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { ChakraProvider } from "@chakra-ui/react";
-import theme from "./constants/theme";
-import { Provider } from "react-redux";
-import store from "./store";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { ColorModeScript } from '@chakra-ui/react';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { ChakraProvider } from '@chakra-ui/react';
+import theme from './constants/theme';
+import { Provider } from 'react-redux';
+import store from './store';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
     <ChakraProvider>
