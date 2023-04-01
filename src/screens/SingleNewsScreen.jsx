@@ -9,14 +9,14 @@ import {
   Image,
   Stack,
   Text,
-} from "@chakra-ui/react";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { newsApiAction } from "../actions/newsActions";
-import { useParams } from "react-router-dom";
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
+} from '@chakra-ui/react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { newsApiAction } from '../actions/newsActions';
+import { useParams } from 'react-router-dom';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 const SingleNewsScreen = () => {
   const match = useParams();
   const [newsArray, setNewsArray] = useState([]);
@@ -26,8 +26,8 @@ const SingleNewsScreen = () => {
   const dispatch = useDispatch();
   const fetchData = async () => {
     const data = await axios.get(
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=9500a99b9aff4259b23997fd87c3a9e0"
-      //   "https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=eb4a33f5bcd518f6cf3f8cea8c5f03ef"
+      // "https://newsapi.org/v2/top-headlines?country=us&apiKey=9500a99b9aff4259b23997fd87c3a9e0"
+      'https://gnews.io/api/v4/top-headlines?apikey=eb4a33f5bcd518f6cf3f8cea8c5f03ef&lang=en'
       // "https://newsdata.io/api/1/news?apikey=pub_187859473556247569161391d633964d2f723&language=en"
     );
     setNewsArray(data.data.articles);
@@ -35,7 +35,7 @@ const SingleNewsScreen = () => {
   const fetchDomesticData = async () => {
     const data = await axios.get(
       // "https://newsapi.org/v2/top-headlines?country=us&apiKey=9500a99b9aff4259b23997fd87c3a9e0"
-      "https://gnews.io/api/v4/top-headlines?apikey=eb4a33f5bcd518f6cf3f8cea8c5f03ef&country=pk"
+      'https://gnews.io/api/v4/top-headlines?apikey=eb4a33f5bcd518f6cf3f8cea8c5f03ef&country=pk'
       // "https://newsdata.io/api/1/news?apikey=pub_187859473556247569161391d633964d2f723&language=en"
     );
     setNewsDomesticArray(data.data.articles);
@@ -59,7 +59,7 @@ const SingleNewsScreen = () => {
     // console.log(match.id);
     // let utcId = dayjs.unix(match.id).format("YYYY-MM-DD HH:mm:ss");
     let utcId = dayjs.unix(match.id).utc().format();
-    console.log(utcId, "utcID");
+    console.log(utcId, 'utcID');
     return news.publishedAt === utcId;
   });
 
@@ -71,13 +71,13 @@ const SingleNewsScreen = () => {
             <Text
               textAlign="center"
               fontSize="30"
-              style={{ fontWeight: "bold" }}
+              style={{ fontWeight: 'bold' }}
             >
               {found?.title}
             </Text>
           </Center>
           <Box position="relative">
-            <Image className="imgg" src={found?.urlToImage} />
+            <Image className="imgg" src={found?.image} />
             <Container fontSize="17" maxW={1200}>
               <Text>{found?.description}</Text>
               <Text py={4}>{found?.content}</Text>

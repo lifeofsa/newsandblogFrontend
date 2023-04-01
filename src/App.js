@@ -21,18 +21,19 @@
 //     </div>
 //   );
 // }
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React from "react";
-import LoginScreen from "./screens/LoginScreen";
-import Navbar from "./components/Navbar";
-import RegisterScreen from "./screens/RegisterScreen";
-import TopNewsScreen from "./screens/TopNewsScreen";
-import BlogScreen from "./screens/BlogScreen";
-import SingleNewsScreen from "./screens/SingleNewsScreen";
-import BlogFormScreen from "./screens/BlogFormScreen";
-import SingleBlogScreen from "./screens/SingleBlogScreen";
-import DomesticNewsScreen from "./screens/DomesticNewsScreen";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import LoginScreen from './screens/LoginScreen';
+import Navbar from './components/Navbar';
+import RegisterScreen from './screens/RegisterScreen';
+import TopNewsScreen from './screens/TopNewsScreen';
+import BlogScreen from './screens/BlogScreen';
+import SingleNewsScreen from './screens/SingleNewsScreen';
+import BlogFormScreen from './screens/BlogFormScreen';
+import SingleBlogScreen from './screens/SingleBlogScreen';
+import DomesticNewsScreen from './screens/DomesticNewsScreen';
 
+export const URL = process.env.NEWS_BLOGS_BACKEND;
 const App = () => {
   return (
     // <React.Fragment>
